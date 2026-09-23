@@ -1,6 +1,32 @@
 import { ScanReport, GlobalStats, User, ApiKey } from './types';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+const LOCAL_API_BASE = 'http://localhost:8000/api/v1';
+
+/**
+ * Resolves the backend base URL.
+ *
+ * - `NEXT_PUBLIC_API_URL` always wins when set (e.g. docker-compose).
+ * - On localhost we talk to the FastAPI dev server directly.
+ * - Everywhere else we use the same-origin `/api/v1` path, which `next.config.js`
+ *   proxies to the real backend. That way a deployed build never has a
+ *   `localhost` URL baked into the client bundle, and requests bypass CORS.
+ */
+function resolveApiBase(): string {
+  const configured = process.env.NEXT_PUBLIC_API_URL;
+  if (configured) return configured.replace(/\/+$/, '');
+
+  if (typeof window !== 'undefined') {
+    const { hostname } = window.location;
+    const isLocal =
+      hostname === 'localhost' ||
+      hostname === '127.0.0.1' ||
+      hostname === '[::1]' ||
+      hostname.endsWith('.localhost');
+    if (isLocal) return LOCAL_API_BASE;
+  }
+
+  return '/api/v1';
+}
 
 export function getAuthToken(): string | null {
   if (typeof window === 'undefined') return null;
@@ -42,7 +68,7 @@ async function request<T>(endpoint: string, options: RequestInit = {}): Promise<
     headers['Authorization'] = `Bearer ${token}`;
   }
 
-  const res = await fetch(`${API_BASE}${endpoint}`, {
+  const res = await fetch(`${resolveApiBase()}${endpoint}`, {
     ...options,
     headers,
   });
@@ -135,11 +161,11 @@ export const api = {
   // Export URLs
   getExportCsvUrl(): string {
     const token = getAuthToken();
-    return `${API_BASE}/export/csv${token ? `?token=${token}` : ''}`;
+    return `${resolveApiBase()}/export/csv${token ? `?token=${token}` : ''}`;
   },
 
   getExportPdfUrl(scanId: number): string {
-    return `${API_BASE}/export/pdf/${scanId}`;
+    return `${resolveApiBase()}/export/pdf/${scanId}`;
   },
 
   // API Keys

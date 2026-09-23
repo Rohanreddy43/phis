@@ -46,7 +46,7 @@ export default function QrScannerPage() {
           />
           <button
             type="submit"
-            className="w-full py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold text-xs hover:brightness-110 shadow-lg shadow-cyan-500/20"
+            className="w-full py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-accent-foreground font-bold text-xs hover:brightness-110 shadow-lg shadow-cyan-500/20"
           >
             Analyze QR Code Destination
           </button>

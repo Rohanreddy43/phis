@@ -78,7 +78,7 @@ export default function ScanProgress({ onComplete }: ScanProgressProps) {
                   ? 'bg-slate-950/80 border-slate-800 text-slate-300'
                   : isCurrent
                   ? 'bg-cyan-950/30 border-cyan-500/40 text-cyan-200 shadow-md shadow-cyan-500/5'
-                  : 'bg-slate-950/30 border-slate-900 text-slate-500 opacity-60'
+                  : 'bg-slate-950/30 border-slate-800 text-slate-500 opacity-60'
               }`}
             >
               {isDone ? (

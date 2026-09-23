@@ -155,7 +155,7 @@ export default function AdminPage() {
       {activeTab === 'logs' && (
         <div className="bg-slate-950 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-2 font-mono text-xs text-slate-300">
           {logs.map((l, i) => (
-            <div key={i} className="p-2 border-b border-slate-900 flex gap-3">
+            <div key={i} className="p-2 border-b border-slate-800 flex gap-3">
               <span className="text-slate-500 font-mono">{l.timestamp}</span>
               <span className="text-cyan-400 font-bold">[{l.level}]</span>
               <span className="text-slate-400">[{l.service}]</span>

@@ -76,7 +76,7 @@ export default function ApiKeysPage() {
           />
           <button
             type="submit"
-            className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold text-xs hover:brightness-110 flex items-center gap-1.5 shrink-0"
+            className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-accent-foreground font-bold text-xs hover:brightness-110 flex items-center gap-1.5 shrink-0"
           >
             <Plus className="w-4 h-4" />
             Create Key

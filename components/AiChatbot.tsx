@@ -100,7 +100,7 @@ export default function AiChatbot({ reportData }: AiChatbotProps) {
         />
         <button
           type="submit"
-          className="px-4 py-2.5 rounded-xl bg-cyan-500 text-slate-950 font-bold text-xs hover:bg-cyan-400 transition-all flex items-center gap-1.5 shadow-lg shadow-cyan-500/20"
+          className="px-4 py-2.5 rounded-xl bg-cyan-500 text-accent-foreground font-bold text-xs hover:bg-cyan-400 transition-all flex items-center gap-1.5 shadow-lg shadow-cyan-500/20"
         >
           <Send className="w-3.5 h-3.5" />
           Send

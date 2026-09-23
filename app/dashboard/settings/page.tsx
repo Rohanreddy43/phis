@@ -80,7 +80,7 @@ export default function SettingsPage() {
             </div>
             <button
               type="submit"
-              className="px-4 py-2 rounded-xl bg-cyan-500 text-slate-950 font-bold text-xs hover:bg-cyan-400 transition-all"
+              className="px-4 py-2 rounded-xl bg-cyan-500 text-accent-foreground font-bold text-xs hover:bg-cyan-400 transition-all"
             >
               Update Password
             </button>

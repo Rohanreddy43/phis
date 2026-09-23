@@ -36,7 +36,7 @@ export default function DashboardPage() {
         </div>
         <Link
           href="/dashboard/scan"
-          className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold text-xs shadow-lg shadow-cyan-500/20 hover:brightness-110 transition-all flex items-center gap-2 self-start"
+          className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-accent-foreground font-bold text-xs shadow-lg shadow-cyan-500/20 hover:brightness-110 transition-all flex items-center gap-2 self-start"
         >
           <Search className="w-4 h-4" />
           Scan New URL

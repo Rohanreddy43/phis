@@ -6,6 +6,9 @@ import { useRouter, usePathname } from 'next/navigation';
 import { ShieldCheck, Search, LayoutDashboard, History, Key, Settings, User, LogOut, Sun, Moon, QrCode, Lock } from 'lucide-react';
 import { getStoredUser, removeAuthToken } from '@/lib/api';
 
+/** Must match the key read by the pre-paint script in app/layout.tsx. */
+const THEME_STORAGE_KEY = 'safesurf-theme';
+
 export default function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
@@ -14,17 +17,19 @@ export default function Navbar() {
 
   useEffect(() => {
     setUser(getStoredUser());
-    // Sync initial theme from HTML
+    // The theme is applied before paint (see app/layout.tsx); mirror it here.
     setDarkMode(document.documentElement.classList.contains('dark'));
   }, [pathname]);
 
   const toggleTheme = () => {
     const next = !darkMode;
     setDarkMode(next);
-    if (next) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
+    document.documentElement.classList.toggle('dark', next);
+    try {
+      localStorage.setItem(THEME_STORAGE_KEY, next ? 'dark' : 'light');
+    } catch {
+      // Storage can be unavailable (private mode) — the theme still applies for
+      // this session, it just will not be remembered on the next visit.
     }
   };
 

@@ -42,7 +42,7 @@ export default function LandingPage() {
   return (
     <div className="space-y-24 pb-20">
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-20 pb-16 border-b border-slate-900 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+      <section className="relative overflow-hidden pt-20 pb-16 border-b border-slate-800 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
         {/* Glow backdrop shapes */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute top-1/3 left-1/3 w-[400px] h-[250px] bg-blue-600/10 rounded-full blur-[100px] pointer-events-none" />
@@ -77,7 +77,7 @@ export default function LandingPage() {
               />
               <button
                 type="submit"
-                className="px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold text-sm shadow-lg shadow-cyan-500/25 hover:brightness-110 transition-all flex items-center gap-2 shrink-0"
+                className="px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-accent-foreground font-bold text-sm shadow-lg shadow-cyan-500/25 hover:brightness-110 transition-all flex items-center gap-2 shrink-0"
               >
                 Analyze
                 <ArrowRight className="w-4 h-4" />
@@ -216,7 +216,7 @@ export default function LandingPage() {
           </div>
           <Link
             href="/dashboard/scan"
-            className="px-6 py-3.5 rounded-xl bg-cyan-500 text-slate-950 font-bold text-sm hover:bg-cyan-400 transition-all shadow-lg shadow-cyan-500/25 shrink-0"
+            className="px-6 py-3.5 rounded-xl bg-cyan-500 text-accent-foreground font-bold text-sm hover:bg-cyan-400 transition-all shadow-lg shadow-cyan-500/25 shrink-0"
           >
             Launch URL Scanner
           </Link>
