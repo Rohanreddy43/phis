@@ -480,8 +480,8 @@ export default function ReportView({ report, onBookmarkToggle }: ReportViewProps
                   <ShieldAlert className="w-4 h-4 text-cyan-400" />
                   3. Multi-Source Threat Intelligence
                 </h4>
-                <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold ${modules?.threat_intelligence?.flagged_count > 0 ? 'bg-rose-500/20 text-rose-300 border border-rose-500/30' : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'}`}>
-                  {modules?.threat_intelligence?.flagged_count > 0 ? `${modules.threat_intelligence.flagged_count} Flagged` : 'Clean'}
+                <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold ${modules?.threat_intelligence?.flagged_count !== undefined && modules.threat_intelligence.flagged_count > 0 ? 'bg-rose-500/20 text-rose-300 border border-rose-500/30' : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'}`}>
+                  {modules?.threat_intelligence?.flagged_count !== undefined && modules.threat_intelligence.flagged_count > 0 ? `${modules.threat_intelligence.flagged_count} Flagged` : 'Clean'}
                 </span>
               </div>
               <div className="text-xs text-slate-300 space-y-1 font-mono">
@@ -548,8 +548,8 @@ export default function ReportView({ report, onBookmarkToggle }: ReportViewProps
                   <Code2 className="w-4 h-4 text-cyan-400" />
                   6. HTML & Login Form Analysis
                 </h4>
-                <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold ${modules?.html_security?.findings?.hidden_iframes > 0 ? 'bg-rose-500/20 text-rose-300 border border-rose-500/30' : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'}`}>
-                  {modules?.html_security?.findings?.hidden_iframes > 0 ? 'Suspicious' : 'Clean'}
+                <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold ${modules?.html_security?.findings?.hidden_iframes !== undefined && modules.html_security.findings.hidden_iframes > 0 ? 'bg-rose-500/20 text-rose-300 border border-rose-500/30' : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'}`}>
+                  {modules?.html_security?.findings?.hidden_iframes !== undefined && modules.html_security.findings.hidden_iframes > 0 ? 'Suspicious' : 'Clean'}
                 </span>
               </div>
               <div className="space-y-2 text-xs text-slate-300">

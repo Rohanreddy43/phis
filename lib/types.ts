@@ -120,6 +120,113 @@ export interface SecurityModules {
       total_bonuses: number;
     };
   };
+  favicon_hash: {
+    status: string;
+    favicon_found: boolean;
+    favicon_url?: string;
+    shodan_mmh3_hash?: number;
+    md5_hash?: string;
+    brand_matched?: string | null;
+    is_favicon_spoofed: boolean;
+    details: string;
+  };
+  visual_similarity: {
+    status: string;
+    is_cloned_brand: boolean;
+    matched_brand?: string | null;
+    similarity_score: number;
+    detection_reasons: string[];
+    inspected_targets_count: number;
+  };
+  ai_vision_engine: {
+    status: string;
+    has_phishing_intent: boolean;
+    content_phishing_score: number;
+    detected_phishing_triggers: string[];
+    analyzed_text_length: number;
+    vision_screenshot_analyzed: boolean;
+    layout_classification: string;
+  };
+  behavioral_sandbox: {
+    status: string;
+    sandbox_execution: string;
+    risk_rating: string;
+    suspicious_behavior_detected: boolean;
+    redirect_hop_count: number;
+    auto_download_triggered: boolean;
+    downloaded_files: string[];
+    has_alert_loop: boolean;
+    has_notification_abuse: boolean;
+    behavioral_alerts: string[];
+  };
+  community_threat: {
+    status: string;
+    is_community_flagged: boolean;
+    community_reports_count: number;
+    threat_status: string;
+  };
+  content_category: {
+    is_adult: boolean;
+    is_gambling: boolean;
+    is_illegal: boolean;
+    categories: string[];
+    primary_category: string;
+    warnings: string[];
+  };
+  crawler_engine: {
+    status: string;
+    discovered_routes_count: number;
+    discovered_routes: string[];
+    hidden_login_pages: string[];
+    form_endpoints: string[];
+    external_action_targets: string[];
+    has_hidden_login_portal: boolean;
+    has_external_form_posts: boolean;
+  };
+  js_analysis: {
+    status: string;
+    risk_level: string;
+    total_findings: number;
+    findings: string[];
+    has_obfuscated_js: boolean;
+    has_keylogger: boolean;
+    has_fingerprinting: boolean;
+    has_crypto_miner: boolean;
+    has_websocket_pipe: boolean;
+  };
+  phishing_kit: {
+    status: string;
+    phishing_kit_detected: boolean;
+    has_exfiltration_pipe: boolean;
+    detected_templates: string[];
+    matched_kit_count: number;
+    fingerprint_confidence: string;
+  };
+  site_legitimacy: {
+    status: string;
+    legitimacy_score: number;
+    has_robots_txt: boolean;
+    has_sitemap_xml: boolean;
+    has_privacy_policy: boolean;
+    probed_assets: Record<string, boolean>;
+    is_isolated_phishing_kit: boolean;
+    classification: string;
+  };
+  ssl_dns_intelligence: {
+    status: string;
+    trust_score: number;
+    trust_grade: string;
+    is_newly_registered: boolean;
+    domain_age_days?: number | null;
+    ssl_valid: boolean;
+    is_self_signed_ssl: boolean;
+    has_mx_records: boolean;
+    has_spf_record: boolean;
+    hosting_ip: string;
+    hosting_country: string;
+    hosting_isp: string;
+    risk_factors: string[];
+  };
 }
 
 export interface ScanReport {
